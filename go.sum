@@ -4,8 +4,8 @@ github.com/WJQSERVER-STUDIO/go-utils/iox v0.0.3 h1:Hc1O6D50U3URkdSzfQ/SgeUU750wU
 github.com/WJQSERVER-STUDIO/go-utils/iox v0.0.3/go.mod h1:nFQzepAwwdj5Hp5U+X19l4FVvsaOSBTW41BzfI/CkMA=
 github.com/WJQSERVER-STUDIO/go-utils/limitreader v0.0.2 h1:8bBkKk6E2Zr+I5szL7gyc5f0DK8N9agIJCpM1Cqw2NE=
 github.com/WJQSERVER-STUDIO/go-utils/limitreader v0.0.2/go.mod h1:yPX8xuZH+py7eLJwOYj3VVI/4/Yuy5+x8Mhq8qezcPg=
-github.com/WJQSERVER-STUDIO/httpc v0.9.0 h1:MpXcQQqukrSLHH/2tTfnXrhqD6nEDHB/gbzehXaS8o4=
-github.com/WJQSERVER-STUDIO/httpc v0.9.0/go.mod h1:filzryrl4eAtFVyl4oVHcJqx1SpNFbrCn+ddQPLlCSg=
+github.com/WJQSERVER-STUDIO/httpc v0.10.1 h1:hmXIRrdaGh08LDMwEDoE0FTN+DnSGAaYmFLg/zLKPJM=
+github.com/WJQSERVER-STUDIO/httpc v0.10.1/go.mod h1:s9+MHolXCj1UaSIbRjRLoi2eDlfzTaJ1tUZudPxAp9A=
 github.com/WJQSERVER/wanf v0.0.8 h1:1Ri9d7nKhu22hGxP8O9B9rXnYym6DYGKgi6WRVx3VF8=
 github.com/WJQSERVER/wanf v0.0.8/go.mod h1:R0Zw/1skEMVlQ9m5atbkmanlW+9h2bkdq7+wbPY+F/8=
 github.com/fenthope/bauth v0.0.1 h1:+4UIQshGx3mYD4L3f2S4MLZOi5PWU7fU5GK3wsZvwzE=
@@ -28,9 +28,9 @@ github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6Kllzaw
 github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyCJ6HpOuEn7z0Csc=
 github.com/wjqserver/modembed v0.0.1 h1:8ZDz7t9M5DLrUFlYgBUUmrMzxWsZPmHvOazkr/T2jEs=
 github.com/wjqserver/modembed v0.0.1/go.mod h1:sYbQJMAjSBsdYQrUsuHY380XXE1CuRh8g9yyCztTXOQ=
-golang.org/x/net v0.53.0 h1:d+qAbo5L0orcWAr0a9JweQpjXF19LMXJE8Ey7hwOdUA=
-golang.org/x/net v0.53.0/go.mod h1:JvMuJH7rrdiCfbeHoo3fCQU24Lf5JJwT9W3sJFulfgs=
-golang.org/x/text v0.36.0 h1:JfKh3XmcRPqZPKevfXVpI1wXPTqbkE5f7JA92a55Yxg=
-golang.org/x/text v0.36.0/go.mod h1:NIdBknypM8iqVmPiuco0Dh6P5Jcdk8lJL0CUebqK164=
+golang.org/x/net v0.61.0 h1:RR+6j/BTBCrggOLugxa+66R8FvoN6MHlzDlZIbN9YFw=
+golang.org/x/net v0.61.0/go.mod h1:WgDCOTH8iwtB66T4/GfI94AHo/hhdb7Hah9NDseQfiI=
+golang.org/x/text v0.43.0 h1:1QivrlhwAsnMOcqgOdl9my7s9OyZl8O5/UGUTJVXoWc=
+golang.org/x/text v0.43.0/go.mod h1:hbSIYA/amXcRXTFSZqh8tWHEoqRvvbKPJ2uz/KU+a+s=
 golang.org/x/time v0.15.0 h1:bbrp8t3bGUeFOx08pvsMYRTCVSMk89u4tKbNOZbp88U=
 golang.org/x/time v0.15.0/go.mod h1:Y4YMaQmXwGQZoFaVFk4YpCt4FLQMYKZe9oeV/f4MSno=
