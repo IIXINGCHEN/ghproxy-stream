@@ -211,11 +211,20 @@ func extractParts(rawURL string) (string, string, string, url.Values, error) {
 		return "", "", "", nil, fmt.Errorf("URL path is too short")
 	}
 
-	repoOwner := "/" + parts[0]
-	repoName := "/" + parts[1]
+	// 空段不补 "/"：URL 为 //repo/a 时 parts[0] 为空，旧代码会返回
+	// owner="/"，与测试期望的 "" 不符。查询串保持标准库 Query()
+	// 的原样返回（无查询时为空 map，非 nil）。
+	slashPrefix := func(s string) string {
+		if s == "" {
+			return ""
+		}
+		return "/" + s
+	}
+	repoOwner := slashPrefix(parts[0])
+	repoName := slashPrefix(parts[1])
 	var remainingPath string
 	if len(parts) > 2 {
-		remainingPath = "/" + parts[2]
+		remainingPath = slashPrefix(parts[2])
 	}
 
 	return repoOwner, repoName, remainingPath, parsedURL.Query(), nil

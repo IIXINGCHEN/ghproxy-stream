@@ -1,0 +1,26 @@
+# PR / main 推送的 CI 门禁：构建 + vet + 单元测试。
+# 注意：主包（.）不在构建范围内，因为 pages/ 是部署时生成的
+# （gitignored），干净检出本来就编不过主包；代理与配置包才是
+# 本仓库改动的核心面，CI 只覆盖它们。
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  ci:
+    name: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+      - name: Build
+        run: go build ./proxy/... ./config/...
+      - name: Vet
+        run: go vet ./proxy/... ./config/...
+      - name: Test
+        run: go test ./proxy/...

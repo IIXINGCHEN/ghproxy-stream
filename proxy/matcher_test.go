@@ -276,6 +276,9 @@ func TestExtractParts_Compatibility(t *testing.T) {
 			expectedOwner: "",                            // First part is empty
 			expectedRepo:  "/repo",
 			expectedRem:   "/a",
+			// 无查询时 Query() 返回空 map（非 nil），与 No_remaining_path
+			// 的期望一致；此处原先漏写该字段，默认值 nil 导致误判。
+			expectedQuery: url.Values{},
 		},
 		{
 			name:        "Invalid URL format",
