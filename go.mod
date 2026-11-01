@@ -1,16 +1,11 @@
 module ghproxy
 
-go 1.26
+go 1.27
 
 require (
 	github.com/BurntSushi/toml v1.6.0
-	github.com/WJQSERVER-STUDIO/httpc v0.9.0
-	golang.org/x/net v0.53.0
-	golang.org/x/time v0.15.0
-)
-
-require (
 	github.com/WJQSERVER-STUDIO/go-utils/limitreader v0.0.2
+	github.com/WJQSERVER-STUDIO/httpc v0.10.1
 	github.com/WJQSERVER/wanf v0.0.8
 	github.com/fenthope/bauth v0.0.1
 	github.com/fenthope/ikumi v0.0.2
@@ -21,10 +16,12 @@ require (
 	github.com/hashicorp/golang-lru/v2 v2.0.7
 	github.com/infinite-iroha/touka v0.5.1-0.20260409232140-271e54eb4d44
 	github.com/wjqserver/modembed v0.0.1
+	golang.org/x/net v0.61.0
+	golang.org/x/time v0.15.0
 )
 
 require (
 	github.com/WJQSERVER-STUDIO/go-utils/iox v0.0.3 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
-	golang.org/x/text v0.36.0 // indirect
+	golang.org/x/text v0.43.0 // indirect
 )
