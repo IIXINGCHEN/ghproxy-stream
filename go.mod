@@ -1,12 +1,12 @@
 module ghproxy
 
-go 1.26
+go 1.26.0
 
 require (
 	github.com/BurntSushi/toml v1.6.0
 	github.com/WJQSERVER-STUDIO/httpc v0.9.0
 	golang.org/x/net v0.53.0
-	golang.org/x/time v0.15.0
+	golang.org/x/time v0.16.0
 )
 
 require (
