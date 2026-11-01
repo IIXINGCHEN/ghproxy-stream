@@ -1,0 +1,10 @@
+demo
+demo.toml
+demo.wanf
+*.log
+*.bak
+list.json
+iplist.json
+repos
+pages
+*_test

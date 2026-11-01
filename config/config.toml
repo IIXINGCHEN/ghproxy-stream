@@ -1,0 +1,82 @@
+[server]
+host = "0.0.0.0" 
+port = 8080 
+sizeLimit = 2048 # MB, 流式传输上限（Content-Length 超限返回 413，分块体在上限处断流）；0 表示不限，不再是 301 直连阈值
+memLimit = 0 # MB
+cors = "*" # "*" -> 放行全部；"" 与 "nil" 均表示不发 Access-Control-Allow-Origin（空配置不再意外全放行）
+debug = false
+
+[httpc]
+mode = "auto" # "auto" or "advanced"
+maxIdleConns = 100 # only for advanced mode
+maxIdleConnsPerHost = 60 # only for advanced mode
+maxConnsPerHost = 0 # only for advanced mode
+useCustomRawHeaders = false
+
+[gitclone]
+mode = "bypass" # bypass / cache
+# cache 模式必须填 SmartGit 服务地址；留空时启动即失败，绝不能填本服务自身端口（会自环）
+smartGitAddr = ""
+ForceH2C = false
+
+[shell]
+editor = false
+rewriteAPI = false
+
+[pages]
+mode = "internal" # "internal" or "external"
+theme = "bootstrap" # "bootstrap" or "nebula"
+staticDir = "/data/www" 
+
+[log]
+logFilePath = "/data/ghproxy/log/ghproxy.log" 
+maxLogSize = 5 # MB
+level = "info" # debug, info, warn, error, none
+
+[auth]
+method = "parameters" # "header" or "parameters"
+token = "token"
+key = ""
+enabled = false
+passThrough = false
+ForceAllowApi = false
+ForceAllowApiPassList = false
+
+[blacklist]
+blacklistFile = "/data/ghproxy/config/blacklist.json"
+enabled = false
+
+[whitelist]
+enabled = false
+whitelistFile = "/data/ghproxy/config/whitelist.json"
+
+[ipFilter]
+enabled = false
+enableAllowList = false
+enableBlockList = false
+ipFilterFile = "/data/ghproxy/config/ipfilter.json"
+
+[rateLimit]
+enabled = false
+# 注意：ratePerMinute 是每分钟（程序内部除以 60 换算成每秒）；旧代码直接当成每秒传给限速器，实际生效约 60 倍
+ratePerMinute = 180
+burst = 5
+
+[rateLimit.bandwidthLimit]
+	enabled = false
+	totalLimit = "100mbps"
+	totalBurst = "100mbps"
+	singleLimit = "10mbps"
+	singleBurst = "10mbps"
+
+[outbound]
+enabled = false
+url = "socks5://127.0.0.1:1080" # "http://127.0.0.1:7890"
+
+[docker]
+enabled = false
+target = "dockerhub" # ghcr/dockerhub/ custom
+auth = false
+[docker.credentials]
+user1 = "testpass"
+test = "test123"
