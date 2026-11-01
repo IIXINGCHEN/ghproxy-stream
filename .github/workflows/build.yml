@@ -8,6 +8,12 @@ on:
     paths:
       - 'VERSION'
 
+# 发 release 需要写 contents，推 GHCR 需要写 packages；显式声明，
+# 不依赖仓库默认的 GITHUB_TOKEN 权限。
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   prepare:
     runs-on: ubuntu-latest
@@ -104,7 +110,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     env:
-      IMAGE_NAME: wjqserver/ghproxy
+      # GHCR 镜像（新仓库）：不再推上游 Docker Hub，也不再需要
+      # DOCKERHUB_USERNAME / DOCKERHUB_TOKEN 两个密钥。
+      IMAGE_NAME: ghcr.io/iixingchen/ghproxy-stream
       DOCKERFILE: docker/dockerfile/release/Dockerfile
 
     steps:
@@ -126,11 +134,12 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
 
-      - name: Login to Docker Hub
+      - name: Login to GHCR
         uses: docker/login-action@v4
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 构建镜像
         uses: docker/build-push-action@v7
@@ -140,7 +149,4 @@ jobs:
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
-            ${{ env.IMAGE_NAME }}:v4
             ${{ env.IMAGE_NAME }}:latest
-            wjqserver/ghproxy-touka:latest
-            wjqserver/ghproxy-touka:${{ env.VERSION }}

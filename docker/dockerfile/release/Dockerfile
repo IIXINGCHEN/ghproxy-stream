@@ -1,7 +1,7 @@
 FROM alpine:latest AS builder
 
-ARG USER=WJQSERVER-STUDIO
-ARG REPO=ghproxy
+ARG USER=IIXINGCHEN
+ARG REPO=ghproxy-stream
 ARG BRANCH=main
 ARG APPLICATION=ghproxy
 ARG TARGETOS
